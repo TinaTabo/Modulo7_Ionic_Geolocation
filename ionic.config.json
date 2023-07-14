@@ -1,0 +1,7 @@
+{
+  "name": "Modulo7_Ionic_Geolocation",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
