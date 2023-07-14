@@ -1,20 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Geolocalización con Ionic
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="latitud_promesa != 0 && longitud_promesa != 0">
+    <h1>Posicion con Promesa</h1>
+    <p>
+      <strong>Latitud:</strong> {{latitud_promesa}}
+      <br>
+      <strong>Longitud:</strong> {{longitud_promesa}}
+    </p>
   </div>
+
+  <div *ngIf="latitud_observable != 0 && longitud_observable != 0">
+    <h1>Posicion Observable</h1>
+    <p>
+      <strong>Latitud:</strong> {{latitud_observable}}
+      <br>
+      <strong>Longitud:</strong> {{longitud_observable}}
+    </p>
+  </div>
+  <ion-button color="primary" expand="block" (click)="getPosition()">Promesa</ion-button>
+  <ion-button color="secondary" expand="block" (click)="watchPosition()">Observable</ion-button>
 </ion-content>
